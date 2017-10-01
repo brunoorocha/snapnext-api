@@ -2,7 +2,7 @@
 var User = require('../models/user');
 
 exports.listAll = function(req, res) {
-    User.find({}).exec(function(err, users) {
+    User.find({}).exec(function(err, users) {        
         res.json(users);
         res.end();
     });
@@ -15,7 +15,7 @@ exports.userById = function(req, res) {
             res.end();
             return;
         }
-        
+
         res.json(user);
         res.end();
     });
