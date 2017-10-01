@@ -1,6 +1,6 @@
 
 var mongoose = require('mongoose');
-require('../config/database')('mongodb://localhost/snapnext');
+require('../config/database');
 
 var schema = mongoose.Schema({
     username: {
