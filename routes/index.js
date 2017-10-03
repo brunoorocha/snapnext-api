@@ -7,4 +7,9 @@ router.get('/', function(req, res, next) {
     res.end();
 });
 
+router.get('/auth', function(req, res, next) {
+    res.render('login', { title: 'Snapnext' });
+    res.end();
+});
+
 module.exports = router;

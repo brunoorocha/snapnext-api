@@ -1,0 +1,240 @@
+
+@import url('https://fonts.googleapis.com/css?family=Rajdhani:400,500,700');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #171717;
+    overflow: hidden;
+    color: #ccc;
+    font: 16px 'Rajdhani';
+}
+
+div#map {
+    box-sizing: border-box;
+}
+
+.overmap {
+    z-index: 99;
+}
+
+div#map {
+    z-index: 1;
+}
+
+div.sn-logo {
+    font: 32px 'Rajdhani';
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+div.top-nav {
+    position: fixed;
+    top: 50px;
+    right: 10%;
+}
+
+div.top-nav ul.nav-list{
+    list-style: none;
+}
+
+div.top-nav ul.nav-list li{
+    float: left;
+}
+
+div.top-nav ul.nav-list li a{
+    float: left;
+    font-size: 24px;
+    color: #fff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    margin: 0 20px;
+}
+
+div.top-nav ul.nav-list li a img.user-simg{
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    border: 2px solid #fff;
+    box-sizing: border-box;
+}
+
+span#camera-invoke {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: none;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+
+    display: block;
+    box-sizing: border-box;
+
+    position: fixed;
+    left: calc(50% - 50px);
+    bottom: 50px;
+
+    transition: .2s ease-out;
+}
+
+span#camera-invoke:hover {
+    width: 85px;
+    height: 85px;
+    cursor: pointer;
+    bottom: 52.5px;
+    left: calc(50% - 47.5px);
+}
+
+span#camera-invoke::before {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+
+    content: '';
+
+    position: fixed;
+    left: calc(50% - 60px);
+    bottom: 40px;
+    transition: .2s ease-out;
+}
+
+span#camera-invoke:hover::before {
+    width: 105px;
+    height: 105px;
+
+    left: calc(50% - 62.5px);
+    bottom: 37.5px;
+}
+
+div.form-box {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+form.login-form {
+    order: 1;
+    flex: 0 1 auto;
+    align-self: center;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    margin-top: -40px;
+}
+
+form.login-form .sn-logo{
+    margin-bottom: 40px;
+    font-size: 48px;
+    color: #fefefe;
+}
+
+form.login-form div.login-form-input label{
+    float: left;
+    width: 100%;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 5px;
+    padding-left: 10px;
+}
+
+form.login-form div.login-form-input input{
+    float: left;
+    width: 100%;
+    text-align: left;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font: 20px 'Rajdhani';
+    color: #8b8b8b;
+    border: 2px solid #0e0e0e;
+    padding: 40px 10px 10px 10px;
+    margin: -40px 0 30px 0;
+    transition: .2s;
+}
+
+form.login-form div.login-form-input input:focus{
+    border-color: #ffbe5d;
+    color: #fefefe;
+}
+
+form.login-form div.error-field input{
+    border: 2px solid #f26666;
+}
+
+form.login-form div.error-field label{
+    color: #f26666;
+}
+
+form.login-form input[type=submit]{
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: none;
+    color: #ffbe5d;
+    border: 3px solid #ffbe5d;
+    text-transform: uppercase;
+    font: 18px 'Rajdhani';
+    font-weight: bold;
+    padding: 15px 40px;
+    letter-spacing: 2px;
+    transition: .2s ease-out;
+    outline: none;
+}
+
+form.login-form input[type=submit]:hover{
+    background-color: #ffbe5d;
+    color: #171717;
+    letter-spacing: 1px;
+}
+
+form.login-form input[type=submit].loading{
+    color: #171717;
+    background: repeating-linear-gradient(
+        45deg,
+        #ffbe5d,
+        #ffbe5d 20px,
+        #ffc671 20px,
+        #ffc671 40px
+    );
+
+    animation: move .4s linear infinite;
+}
+
+form.login-form input[type=submit].loading:hover{
+    letter-spacing: 2px;
+}
+
+@keyframes move {
+  0% {
+      background: repeating-linear-gradient(
+          45deg,
+          #ffbe5d,
+          #ffbe5d 20px,
+          #ffc671 20px,
+          #ffc671 40px
+      );
+  }
+  100% {
+      background: repeating-linear-gradient(
+          45deg,
+          #ffc671,
+          #ffc671 20px,
+          #ffbe5d 20px,
+          #ffbe5d 40px
+      );
+  }
+}
