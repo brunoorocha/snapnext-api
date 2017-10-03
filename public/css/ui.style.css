@@ -147,6 +147,7 @@ form.login-form div.login-form-input label{
     font-weight: bold;
     margin-bottom: 5px;
     padding-left: 10px;
+    box-sizing: border-box;
 }
 
 form.login-form div.login-form-input input{
