@@ -18,7 +18,7 @@ div#map {
 }
 
 .overmap {
-    z-index: 99;
+    z-index: 9;
 }
 
 div#map {
@@ -32,14 +32,21 @@ div.sn-logo {
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
+div.top {
+    position: fixed;
+    left: 10%;
+    margin-top: 40px;
+}
+
 div.top-nav {
     position: fixed;
-    top: 50px;
     right: 10%;
+    margin-top: 40px;
 }
 
 div.top-nav ul.nav-list{
     list-style: none;
+    float: right;
 }
 
 div.top-nav ul.nav-list li{
@@ -53,6 +60,7 @@ div.top-nav ul.nav-list li a{
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     padding: 5px;
     margin: 0 20px;
+    margin-top: 5px;
 }
 
 div.top-nav ul.nav-list li a img.user-simg{
@@ -76,7 +84,7 @@ span#camera-invoke {
 
     position: fixed;
     left: calc(50% - 50px);
-    bottom: 50px;
+    bottom: 70px;
 
     transition: .2s ease-out;
 }
@@ -100,7 +108,7 @@ span#camera-invoke::before {
 
     position: fixed;
     left: calc(50% - 60px);
-    bottom: 40px;
+    bottom: 60px;
     transition: .2s ease-out;
 }
 
@@ -217,6 +225,29 @@ form.login-form input[type=submit].loading{
 
 form.login-form input[type=submit].loading:hover{
     letter-spacing: 2px;
+}
+
+div.mask {
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+div.mask div#camera-canvas {
+    width: 360px;
+    height: 640px;
+    position: fixed;
+    left: calc(50% - 180px);
+    top: calc(50% - 320px);
+}
+
+div.mask div#camera-canvas video{
+    border: 2px solid #7abffa;
+    background-color: #000;   
 }
 
 @keyframes move {

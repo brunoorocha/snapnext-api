@@ -1,7 +1,5 @@
 
 $(document).ready(function() {
-    // initUI();
-    // initMap();
 
     var snapnextApiUrl = "https://pacific-taiga-97807.herokuapp.com";
 
@@ -49,7 +47,7 @@ $(document).ready(function() {
             });
 
     });
-
+    
     //var apiURL = "http://localhost:8080";
 
     // $.ajax({

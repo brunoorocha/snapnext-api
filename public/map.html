@@ -4,12 +4,14 @@
         <meta charset="utf-8">
         <title>snapnext</title>
         <link rel="stylesheet" href="./css/font-awesome-4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" media="screen" href="./css/ui.style.css">
         <script type="text/javascript" src="./js/jquery-3.2.1.js"></script>
-        <script type="text/javascript" src="./js/map.js"></script>
+        <!-- <script type="text/javascript" src="./js/map.js"></script> -->
         <script type="text/javascript" src="./js/map-style.js"></script>
         <script type="text/javascript" src="./js/ui-controller.js"></script>
         <script type="text/javascript" src="./js/app.js"></script>
+        <script type="text/javascript" src="./js/camera.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqzLefuOPjzqilZRRZDILvSF8QgJ_r1jc" async defer></script>
     </head>
     <body>
@@ -20,11 +22,13 @@
 
             <div class="mask">
                 <div id="camera-canvas">
+                    <video src="" autoplay width="360" height="640" id="video">
 
+                    </video>
                 </div>
             </div>
 
-            <div class="sn-logo overmap">
+            <div class="sn-logo overmap top">
                 snapnext
             </div>
 
