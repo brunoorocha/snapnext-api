@@ -22,9 +22,17 @@
 
             <div class="mask">
                 <div id="camera-canvas">
-                    <video src="" autoplay width="360" height="640" id="video">
+                    <div class="camera-controls">
+                        <header>
+                            <a href="#" id="camera-close-btn" class="close-btn"><i class="fa fa-times" aria-hidden="true"></i></a>
+                        </header>
 
-                    </video>
+                        <footer>
+                            <a href="#" id="camera-capture-btn"></a>
+                        </footer>
+                    </div>
+
+                    <video src="" autoplay id="video"></video>
                 </div>
             </div>
 

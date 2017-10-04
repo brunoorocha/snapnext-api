@@ -93,7 +93,7 @@ span#camera-invoke:hover {
     width: 85px;
     height: 85px;
     cursor: pointer;
-    bottom: 52.5px;
+    bottom: 72.5px;
     left: calc(50% - 47.5px);
 }
 
@@ -117,7 +117,7 @@ span#camera-invoke:hover::before {
     height: 105px;
 
     left: calc(50% - 62.5px);
-    bottom: 37.5px;
+    bottom: 57.5px;
 }
 
 div.form-box {
@@ -235,19 +235,103 @@ div.mask {
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    opacity: 0;
+    transition: .3s;
+}
+
+div.maskFlexbox {
+    opacity: 1;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
 
 div.mask div#camera-canvas {
-    width: 360px;
-    height: 640px;
-    position: fixed;
-    left: calc(50% - 180px);
-    top: calc(50% - 320px);
+    order: 1;
+    flex: 0 1 auto;
+    align-self: center;
+    max-width: 360px;
+    max-height: 640px;
+    width: 90%;
+    height: 90%;
+    position: relative;
+}
+
+div.mask div#camera-canvas div.camera-controls{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 11;
+}
+
+div.mask div#camera-canvas div.camera-controls header {
+    width: 100%;
+    height: 80%;
+    float: left;
+}
+
+div.mask div#camera-canvas div.camera-controls header a.close-btn{
+    float: right;
+    font-size: 22px;
+    padding: 20px;
+    color: #fefefe;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    transition: .2s;
+}
+
+div.mask div#camera-canvas div.camera-controls header a.close-btn:hover, div.mask div#camera-canvas div.camera-controls header a.close-btn:active {
+    color: #f26666;
+}
+
+div.mask div#camera-canvas div.camera-controls footer {
+    float: left;
+    width: 100%;
+    margin-top: 5%;
+}
+
+div.mask div#camera-canvas div.camera-controls footer a#camera-capture-btn{
+    display: block;
+    margin: 0 auto;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #fefefe;
+    position: relative;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+div.mask div#camera-canvas div.camera-controls footer a#camera-capture-btn::after{
+    content: '';
+    display: block;
+    margin: 0 auto;
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    border: 3px solid #fefefe;
+    position: absolute;
+    margin-left: -10px;
+    margin-top: -10px;
+    transition: .2s;
+}
+
+div.mask div#camera-canvas div.camera-controls footer a#camera-capture-btn:hover::after,
+div.mask div#camera-canvas div.camera-controls footer a#camera-capture-btn:active::after {
+    width: 80px;
+    height: 80px;
+    margin-left: -13px;
+    margin-top: -13px;
 }
 
 div.mask div#camera-canvas video{
+    background-color: #000;
+    width: 100%;
+    height: 100%;
     border: 2px solid #7abffa;
-    background-color: #000;   
+    box-sizing: border-box;
 }
 
 @keyframes move {

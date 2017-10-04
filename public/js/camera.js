@@ -1,5 +1,5 @@
 
-window.onload = function() {
+$(document).ready(function() {
 
     var player = document.getElementById('video');
     // var player         = document.getElementById('video');
@@ -16,32 +16,33 @@ window.onload = function() {
          player.srcObject = stream;
     }
 
-    navigator.getUserMedia(
-        // Options
-        {
-            video: true
-        },
-        // Success Callback
-        function(stream){
+    $('#camera-close-btn').on("click", function(evt) {
+        evt.preventDefault();
 
-            // Create an object URL for the video stream and
-            // set it as src of our HTLM video element.
-            video.src = window.URL.createObjectURL(stream);
+        $('.mask').removeClass('maskFlexbox');
+    });
 
-            // Play the video element to show the stream to the user.
-            video.play();
+    $('#camera-invoke').on("click", function() {
 
-        },
-        // Error Callback
-        function(err){
+        $('.mask').addClass('maskFlexbox');
 
-            // Most common errors are PermissionDenied and DevicesNotFound.
-            console.error(err);
-
-        }
-    );
-
+        navigator.getUserMedia({ video: true },
+            // Success Callback
+            function(stream){
+                // Create an object URL for the video stream and
+                // set it as src of our HTLM video element.
+                video.src = window.URL.createObjectURL(stream);
+                // Play the video element to show the stream to the user.
+                video.play();
+            },
+            // Error Callback
+            function(err){
+                // Most common errors are PermissionDenied and DevicesNotFound.
+                console.error(err);
+            }
+        );
+    });
 
     // APP KEY: AIzaSyCqzLefuOPjzqilZRRZDILvSF8QgJ_r1jc
 
-}
+});
