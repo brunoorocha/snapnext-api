@@ -32,16 +32,24 @@ div.sn-logo {
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
-div.top {
-    position: fixed;
-    left: 10%;
-    margin-top: 40px;
-}
-
 div.top-nav {
     position: fixed;
-    right: 10%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /*background-color: #171717;*/
     margin-top: 40px;
+    /*box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);*/
+}
+
+div.align {
+    max-width: 960px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+div.top-nav div.sn-logo{
+    float: left;
 }
 
 div.top-nav ul.nav-list{
@@ -234,11 +242,13 @@ div.mask div#camera-canvas {
     align-self: center;
     max-width: 360px;
     max-height: 640px;
-    width: 95%;
+    width: 94%;
     height: 100%;
     position: relative;
     overflow: hidden;
-    margin-top: 10px;
+    margin-top: 0;
+    box-sizing: border-box;
+    border: 2px solid #7abffa;
 }
 
 div.mask div#camera-canvas div.slider {
@@ -299,7 +309,9 @@ div.mask div#camera-canvas header a.close-btn:hover, div.mask div#camera-canvas 
 div.mask div#camera-canvas div.camera-controls footer {
     float: left;
     width: 100%;
-    margin-top: 5%;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 40px;
 }
 
 div.mask div#camera-canvas div.camera-controls footer span{
@@ -347,15 +359,12 @@ div.mask div#camera-canvas video{
     height: 100%;
     transform: scale(-1, 1);
     background-color: #000;
-    border: 2px solid #7abffa;
-    box-sizing: border-box;
     float: left;
 }
 
 div.mask div#camera-canvas div#photo-preview{
     width: 50%;
     box-sizing: border-box;
-    border: 2px solid #7abffa;
     float: left;
     display: flex;
     flex-flow: row nowrap;
