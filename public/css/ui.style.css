@@ -72,8 +72,7 @@ div.top-nav ul.nav-list li a img.user-simg{
 }
 
 span#camera-invoke {
-    width: 90px;
-    height: 90px;
+
     border-radius: 50%;
     background-color: #fff;
     border: none;
@@ -83,41 +82,21 @@ span#camera-invoke {
     box-sizing: border-box;
 
     position: fixed;
-    left: calc(50% - 50px);
-    bottom: 70px;
+    left: calc(50% - 48px);
+    bottom: 42px;
 
     transition: .2s ease-out;
+    text-align: center;
+    padding: 24px;
+}
+
+span#camera-invoke i {
+    color: #171717;
+    font-size: 36px;
 }
 
 span#camera-invoke:hover {
-    width: 85px;
-    height: 85px;
-    cursor: pointer;
-    bottom: 72.5px;
-    left: calc(50% - 47.5px);
-}
-
-span#camera-invoke::before {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 5px solid #fff;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-
-    content: '';
-
-    position: fixed;
-    left: calc(50% - 60px);
-    bottom: 60px;
-    transition: .2s ease-out;
-}
-
-span#camera-invoke:hover::before {
-    width: 105px;
-    height: 105px;
-
-    left: calc(50% - 62.5px);
-    bottom: 57.5px;
+    transform: scale(.92);
 }
 
 div.form-box {
@@ -255,7 +234,7 @@ div.mask div#camera-canvas {
     align-self: center;
     max-width: 360px;
     max-height: 640px;
-    width: 100%;
+    width: 95%;
     height: 100%;
     position: relative;
     overflow: hidden;

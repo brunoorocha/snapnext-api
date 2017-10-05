@@ -30,6 +30,7 @@ $(document).ready(function() {
 
         context.clearRect(0, 0, w, h);
         $('.mask').removeClass('maskFlexbox');
+        $('.slider').css('margin-left', '0');
     });
 
     $('.voltar-btn').on("click", function(evt) {
