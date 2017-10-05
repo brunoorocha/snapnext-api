@@ -47,18 +47,4 @@ $(document).ready(function() {
             });
 
     });
-    
-    //var apiURL = "http://localhost:8080";
-
-    // $.ajax({
-    //     url: apiURL +"/users/",
-    //     success: function(data) {
-    //         for (var key in data) {
-    //             $('.results').append("<p>"+ JSON.stringify(data[key]) +"</p>");
-    //         }
-    //     },
-    //     error: function(xhr, status) {
-    //         console.log("error");
-    //     }
-    // });
 });

@@ -255,9 +255,17 @@ div.mask div#camera-canvas {
     align-self: center;
     max-width: 360px;
     max-height: 640px;
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
     position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+div.mask div#camera-canvas div.slider {
+    float: left;
+    width: 200%;
+    transition: .2s;
 }
 
 div.mask div#camera-canvas div.camera-controls{
@@ -274,16 +282,38 @@ div.mask div#camera-canvas div.camera-controls header {
     float: left;
 }
 
-div.mask div#camera-canvas div.camera-controls header a.close-btn{
+div.mask div#camera-canvas header a.close-btn{
     float: right;
     font-size: 22px;
     padding: 20px;
     color: #fefefe;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-    transition: .2s;
+    transition: .2s ease-in;
 }
 
-div.mask div#camera-canvas div.camera-controls header a.close-btn:hover, div.mask div#camera-canvas div.camera-controls header a.close-btn:active {
+div.mask div#camera-canvas header a.voltar-btn{
+    float: left;
+    font-size: 22px;
+    padding: 20px;
+    color: #fefefe;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    transition: .2s ease-in;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+div.mask div#camera-canvas header a.voltar-btn:hover,
+div.mask div#camera-canvas header a.voltar-btn:active{
+    color: #ffbe5d;
+}
+
+div.mask div#camera-canvas header a.voltar-btn i{
+    float: left;
+    margin-top: 4px;
+    margin-right: 10px;
+}
+
+div.mask div#camera-canvas header a.close-btn:hover, div.mask div#camera-canvas header a.close-btn:active {
     color: #f26666;
 }
 
@@ -334,15 +364,66 @@ div.mask div#camera-canvas div.camera-controls footer a#camera-capture-btn:activ
 }
 
 div.mask div#camera-canvas video{
-    width: 100%;
+    width: 50%;
     height: 100%;
     transform: scale(-1, 1);
     background-color: #000;
     border: 2px solid #7abffa;
     box-sizing: border-box;
+    float: left;
 }
 
-div.mask div#camera-canvas canvas#video-canvas{
+div.mask div#camera-canvas div#photo-preview{
+    width: 50%;
+    box-sizing: border-box;
+    border: 2px solid #7abffa;
+    float: left;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background-color: #000;
+    position: relative;
+}
+
+div.mask div#camera-canvas div#photo-preview header {
+    width: 100%;
+    float: left;
+    position: absolute;
+    top: 0;
+}
+
+div.mask div#camera-canvas div#photo-preview footer {
+    width: 100%;
+    float: left;
+    position: absolute;
+    bottom: 0;
+}
+
+div.mask div#camera-canvas div#photo-preview footer a#publicar-btn {
+    color: #fefefe;
+    float: right;
+    font-size: 22px;
+    padding: 20px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    transition: .2s ease-in;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .2s;
+}
+
+div.mask div#camera-canvas div#photo-preview footer a#publicar-btn:hover,
+div.mask div#camera-canvas div#photo-preview footer a#publicar-btn:active {
+    color: #8dd964;
+}
+
+div.mask div#camera-canvas div#photo-preview canvas{
+    float: left;
+    width: 100%;
+    order: 1;
+    flex: 0 1 auto;
+    align-self: center;
 }
 
 @keyframes move {

@@ -22,18 +22,30 @@
 
             <div class="mask">
                 <div id="camera-canvas">
-                    <div class="camera-controls">
-                        <header>
-                            <a href="#" id="camera-close-btn" class="close-btn"><i class="fa fa-times" aria-hidden="true"></i></a>
-                        </header>
+                    <div class="slider">
+                        <div class="camera-controls">
+                            <header>
+                                <a href="#" id="camera-close-btn" class="close-btn"><i class="fa fa-times" aria-hidden="true"></i></a>
+                            </header>
 
-                        <footer>
-                            <a href="#" id="camera-capture-btn"></a>
-                        </footer>
+                            <footer>
+                                <a href="#" id="camera-capture-btn"></a>
+                            </footer>
+                        </div>
+
+                        <video src="" autoplay id="video"></video>
+                        <div id="photo-preview">
+                            <header>
+                                <a href="#" class="voltar-btn"><i class="fa fa-chevron-left" aria-hidden="true"></i> voltar</a>
+                                <a href="#" id="camera-close-btn" class="close-btn"><i class="fa fa-times" aria-hidden="true"></i></a>
+                            </header>
+
+                            <footer>
+                                <a href="#" id="publicar-btn"><i class="fa fa-share" aria-hidden="true"></i></a>
+                            </footer>
+                            <canvas id="video-canvas"></canvas>
+                        </div>
                     </div>
-
-                    <video src="" autoplay id="video"></video>
-                    <canvas id="video-canvas"></canvas>
                 </div>
             </div>
 

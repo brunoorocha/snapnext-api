@@ -11,15 +11,32 @@ $(document).ready(function() {
     //     context.drawImage(player, 0, 0, snapshotCanvas.width, snapshotCanvas.height);
     // });
     //
-    var localStream = null;
+    var video        = document.getElementById('video');
+    var videoCanvas  = document.getElementById('video-canvas');
+    var context      = videoCanvas.getContext('2d');
+    var localStream  = null;
+    var w;
+    var h;
 
-    $('#camera-close-btn').on("click", function(evt) {
+    $('#video').css('height', $(window).height() - 20 + "px");
+    $('#photo-preview').css('height', $(window).height() - 20 + "px");
+
+    $('.close-btn').on("click", function(evt) {
         evt.preventDefault();
 
         video.pause();
         video.srcObject = null;
         localStream.getTracks()[0].stop();
+
+        context.clearRect(0, 0, w, h);
         $('.mask').removeClass('maskFlexbox');
+    });
+
+    $('.voltar-btn').on("click", function(evt) {
+        evt.preventDefault();
+
+        $('.slider').css('margin-left', '0');
+        context.clearRect(0, 0, w, h);
     });
 
     $('#camera-invoke').on("click", function() {
@@ -42,22 +59,26 @@ $(document).ready(function() {
         navigator.mediaDevices.getUserMedia(constraints)
             .then(function(mediaStream) {
 
-                var video        = document.getElementById('video');
-                var videoCanvas  = document.getElementById('video-canvas');
-                var cntxt        = videoCanvas.getContext('2d');
-                var w            = $('#video').width();
-                var h            = $('#video').height();
-
                 localStream = video.srcObject = mediaStream;
 
                 video.onloadedmetadata = function(e) {
                     video.play();
-                    //console.log("width: "+ w +" | height: "+ h);
+
+                    w = this.videoWidth;
+                    h = this.videoHeight;
+
+                    videoCanvas.setAttribute('width', w);
+                    videoCanvas.setAttribute('height', h);
+
+                    context.translate(w, 0);
+                    context.scale(-1, 1);
                 };
 
                 $('#camera-capture-btn').on('click', function(e) {
                     e.preventDefault();
-                    console.log("capture");
+
+                    context.drawImage(video, 0, 0, w, h);
+                    $('.slider').css('margin-left', '-100%');
                 });
             })
             .catch(function(err) { console.log(err.name + ": " + err.message); });
