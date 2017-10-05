@@ -279,7 +279,7 @@ div.mask div#camera-canvas div.camera-controls header a.close-btn{
     font-size: 22px;
     padding: 20px;
     color: #fefefe;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
     transition: .2s;
 }
 
@@ -291,6 +291,13 @@ div.mask div#camera-canvas div.camera-controls footer {
     float: left;
     width: 100%;
     margin-top: 5%;
+}
+
+div.mask div#camera-canvas div.camera-controls footer span{
+    float: left;
+    width: 100%;
+    text-align: center;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
 }
 
 div.mask div#camera-canvas div.camera-controls footer a#camera-capture-btn{
@@ -327,11 +334,15 @@ div.mask div#camera-canvas div.camera-controls footer a#camera-capture-btn:activ
 }
 
 div.mask div#camera-canvas video{
-    background-color: #000;
     width: 100%;
     height: 100%;
+    transform: scale(-1, 1);
+    background-color: #000;
     border: 2px solid #7abffa;
     box-sizing: border-box;
+}
+
+div.mask div#camera-canvas canvas#video-canvas{
 }
 
 @keyframes move {
