@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" media="screen" href="./css/ui.style.css">
         <script type="text/javascript" src="./js/jquery-3.2.1.js"></script>
+        <script type="text/javascript" src="./js/auth-middleware.js"></script>
         <script type="text/javascript" src="./js/map.js"></script>
         <script type="text/javascript" src="./js/map-style.js"></script>
         <script type="text/javascript" src="./js/ui-controller.js"></script>
@@ -52,7 +53,15 @@
             <div class="top-nav overmap">
                 <div class="align">
                     <ul class="nav-list">
-                        <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
+                        <li class="menu-item"><a id="config-btn" href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                            <div class="config-modal">
+                                <ul>
+                                    <li class="config-modal-username">username</li>
+                                    <li><a href="#">Editar perfil</a></li>
+                                    <li><a href="#">Sair</a></li>
+                                </ul>
+                            </div>
+                        </li>
                         <!-- <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
                         <li><a href="#"><img src="./img/user-img.jpg" alt="" class="user-simg"></i></a></li> -->

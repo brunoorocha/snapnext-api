@@ -59,6 +59,7 @@ div.top-nav ul.nav-list{
 
 div.top-nav ul.nav-list li{
     float: left;
+    position: relative;
 }
 
 div.top-nav ul.nav-list li a{
@@ -77,6 +78,74 @@ div.top-nav ul.nav-list li a img.user-simg{
     height: 28px;
     border: 2px solid #fff;
     box-sizing: border-box;
+}
+
+div.top-nav ul.nav-list div.config-modal {
+    background-color: #262626;
+    position: absolute;
+    min-width: 240px;
+    max-width: 340px;
+    margin-top: 60px;
+    margin-right: 20px;
+    right: 0;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid #171717;
+    transition: all .1s ease-in;
+    transform: scale(0.8);
+    transform-origin: top right;
+    opacity: 0;
+    visibility: hidden;
+}
+
+div.top-nav ul.nav-list div.config-modal-actived {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+
+div.top-nav ul.nav-list div.config-modal ul {
+    width: 100%;
+    float: left;
+}
+
+div.top-nav ul.nav-list div.config-modal ul li {
+    width: 100%;
+    float: left;
+    list-style-type: none;
+}
+
+div.top-nav ul.nav-list div.config-modal ul li.config-modal-username {
+    font-size: 18px;
+    color: #fefefe;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    width: 100%;
+    border-bottom: 1px solid #171717;
+}
+
+div.top-nav ul.nav-list div.config-modal ul li a{
+    width: 100%;
+    float: left;
+    color: #fefefe;
+    padding: 0;
+    text-shadow: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 18px 30px;
+    box-sizing: border-box;
+    text-align: left;
+    margin: 0;
+    transition: .2s;
+    letter-spacing: 2px;
+}
+
+div.top-nav ul.nav-list div.config-modal ul li a:hover,
+div.top-nav ul.nav-list div.config-modal ul li a:target {
+    background-color: #ffbe5d;
+    color: #171717;
+    letter-spacing: 1px;
 }
 
 span#camera-invoke {
@@ -155,7 +224,7 @@ form.login-form div.login-form-input input{
     outline: none;
     font: 20px 'Rajdhani';
     color: #8b8b8b;
-    border: 2px solid #0e0e0e;
+    border: 2px solid #0b0b0b;
     padding: 40px 10px 10px 10px;
     margin: -40px 0 30px 0;
     transition: .2s;
@@ -186,6 +255,7 @@ form.login-form input[type=submit]{
     font: 18px 'Rajdhani';
     font-weight: bold;
     padding: 15px 40px;
+    margin-bottom: 10px;
     letter-spacing: 2px;
     transition: .2s ease-out;
     outline: none;
@@ -212,6 +282,16 @@ form.login-form input[type=submit].loading{
 
 form.login-form input[type=submit].loading:hover{
     letter-spacing: 2px;
+}
+
+form.login-form a.signup-link {
+    color: #8b8b8b;
+    font-size: 18px;
+    transition: .2s;
+}
+
+form.login-form a.signup-link:hover {
+    color: #7abffa;
 }
 
 div.mask {
