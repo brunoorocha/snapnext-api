@@ -24,7 +24,7 @@ exports.markers = function(req, res) {
 }
 
 exports.listAll = function(req, res) {
-    Snap.find({})    
+    Snap.find({})
         .exec(function(err, snaps) {
             if(err) {
                 res.status(500).json({ error: err.message });
@@ -65,7 +65,8 @@ exports.snapById = function(req, res) {
 
 exports.add = function(req, res) {
     var imageURI       = "snap_"+ req.body.userId +"_"+ Date.now() +".png";
-    var imageBinBuffer = new Buffer(req.body.image, 'base64').toString('binary');
+    var imageB64       = req.body.image.replace(/^data:image\/png;base64,/, "");
+    var imageBinBuffer = new Buffer(imageB64, 'base64').toString('binary');
     var imageURL       = req.protocol +"://"+ req.get('host') + "/media/"+ imageURI;
 
     fs.writeFile(('./public/images/snaps/'+ imageURI), imageBinBuffer, 'binary', function(err) {

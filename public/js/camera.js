@@ -1,16 +1,6 @@
 
 $(document).ready(function() {
 
-    // var player         = document.getElementById('video');
-    // var snapshotCanvas = document.getElementById('snapshot');
-    // var captureBtn     = document.getElementById('capture-btn');
-    //
-    // captureBtn.addEventListener("click", function() {
-    //     var context = snapshot.getContext('2d');
-    //
-    //     context.drawImage(player, 0, 0, snapshotCanvas.width, snapshotCanvas.height);
-    // });
-    //
     var video        = document.getElementById('video');
     var videoCanvas  = document.getElementById('video-canvas');
     var context      = videoCanvas.getContext('2d');
@@ -83,6 +73,30 @@ $(document).ready(function() {
                 });
             })
             .catch(function(err) { console.log(err.name + ": " + err.message); });
+    });
+
+    var snapnextApiUrl = "https://pacific-taiga-97807.herokuapp.com";
+    //var snapnextApiUrl = "http://localhost:8080";
+
+    $('#publicar-btn').on("click", function() {
+        var imagePNG = videoCanvas.toDataURL('image/png', 1.0);
+        var userID = sessionStorage.getItem("userID");
+        var userPos = JSON.parse(sessionStorage.getItem("userPos"));
+
+        var dataSerialized = {
+            image: imagePNG,
+            lat: userPos.lat,
+            lng: userPos.lng,
+            subtitle: '',
+            userId: userID
+        }
+
+        $.post(snapnextApiUrl + "/snaps/", dataSerialized, function(res) {
+            console.log(res);
+        }, "json")
+            .fail(function(err) {
+
+            });
     });
 
     // APP KEY: AIzaSyCqzLefuOPjzqilZRRZDILvSF8QgJ_r1jc

@@ -7,7 +7,12 @@ function initMap() {
         disableDefaultUI: true
     });
 
-    var infoWindow = new google.maps.InfoWindow({map: map});
+    var cmarker = {
+        url: "./images/icons/map_marker.png",
+        anchor: new google.maps.Point(41, 41)
+    }
+
+    //var infoWindow = new google.maps.InfoWindow({map: map});
 
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -17,7 +22,8 @@ function initMap() {
                 lng: position.coords.longitude
             };
 
-            infoWindow.setPosition(pos);
+            sessionStorage.setItem('userPos', JSON.stringify(pos));
+            //infoWindow.setPosition(pos);
             map.setCenter(pos);
         },
 
@@ -27,6 +33,26 @@ function initMap() {
     } else {
         handleLocationError(false, infoWindow, map.getCenter());
     }
+
+    var snapnextApiUrl = "https://pacific-taiga-97807.herokuapp.com";
+
+    $.get(snapnextApiUrl + "/snaps/markers/", function(snaps) {
+        console.log(snaps);
+
+        snaps.forEach(function(snap) {
+            var coord = {
+                 lat: snap.lat,
+                 lng: snap.lng
+            }
+
+            var marker = new google.maps.Marker({
+                position: coord,
+                map: map,
+                icon: cmarker,
+                title: snap._id
+            });
+        });
+    });
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
