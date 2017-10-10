@@ -67,7 +67,7 @@ exports.add = function(req, res) {
     var imageURI       = "snap_"+ req.body.userId +"_"+ Date.now() +".png";
     var imageB64       = req.body.image.replace(/^data:image\/png;base64,/, "");
     var imageBinBuffer = new Buffer(imageB64, 'base64').toString('binary');
-    var imageURL       = req.protocol +"://"+ req.get('host') + "/media/"+ imageURI;
+    var imageURL       = "https://"+ req.get('host') + "/media/"+ imageURI;
 
     fs.writeFile(('./public/images/snaps/'+ imageURI), imageBinBuffer, 'binary', function(err) {
         if(err) {
