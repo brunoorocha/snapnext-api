@@ -35,6 +35,8 @@ function initMap() {
 function load_markers(map) {
 
     var snapnextApiUrl = "https://pacific-taiga-97807.herokuapp.com";
+    // var snapnextApiUrl = "http://localhost:8080";
+    
     var cmarker = {
         url: "./images/icons/map_marker.png",
         anchor: new google.maps.Point(41, 41)
