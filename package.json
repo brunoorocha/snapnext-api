@@ -1,6 +1,6 @@
 {
   "name": "snapnext-api",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node app.js"
@@ -15,5 +15,8 @@
     "mongoose": "^4.11.13",
     "morgan": "~1.8.1",
     "serve-favicon": "~2.4.2"
-  }
+   },
+   "engines": {
+       "node": "8.6.0"
+   }
 }

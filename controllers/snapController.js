@@ -82,25 +82,26 @@ exports.add = function(req, res) {
         //     res.json(error);
         //     res.end();
         // }
-        
-        var newSnap = new Snap({
-            imageURL: result.secure_url,
-            lat: req.body.lat,
-            lng: req.body.lng,
-            subtitle: req.body.subtitle,
-            userId: req.body.userId,
-        });
 
-        newSnap.save(function(err) {
-            if(err) {
-                res.status(500).json({ error: err.message });
-                res.end();
-                return;
-            }
-
-            res.json(newSnap);
-            res.end();
-        });
+        console.log(result.secure_url);
+        // var newSnap = new Snap({
+        //     imageURL: result.secure_url,
+        //     lat: req.body.lat,
+        //     lng: req.body.lng,
+        //     subtitle: req.body.subtitle,
+        //     userId: req.body.userId,
+        // });
+        //
+        // newSnap.save(function(err) {
+        //     if(err) {
+        //         res.status(500).json({ error: err.message });
+        //         res.end();
+        //         return;
+        //     }
+        //
+        //     res.json(newSnap);
+        //     res.end();
+        // });
     });
 
     // fs.writeFile(('./public/images/snaps/'+ imageURI), imageBinBuffer, 'binary', function(err) {
