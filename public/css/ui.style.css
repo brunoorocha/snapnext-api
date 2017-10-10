@@ -40,6 +40,8 @@ div.top-nav {
     /*background-color: #171717;*/
     margin-top: 40px;
     /*box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);*/
+    box-sizing: border-box;
+    padding: 0 10px;
 }
 
 div.align {
@@ -68,7 +70,6 @@ div.top-nav ul.nav-list li a{
     color: #fff;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     padding: 5px;
-    margin: 0 20px;
     margin-top: 5px;
 }
 
@@ -86,7 +87,7 @@ div.top-nav ul.nav-list div.config-modal {
     min-width: 240px;
     max-width: 340px;
     margin-top: 60px;
-    margin-right: 20px;
+    margin-right: -12px;
     right: 0;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
     border: 1px solid #171717;
@@ -95,6 +96,20 @@ div.top-nav ul.nav-list div.config-modal {
     transform-origin: top right;
     opacity: 0;
     visibility: hidden;
+}
+
+div.top-nav ul.nav-list div.config-modal::after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: #262626;
+    transform: rotate(45deg);
+    border-top: 1px solid #171717;
+    border-left: 1px solid #171717;
+    position: absolute;
+    right: 15px;
+    margin-top: -11px;
 }
 
 div.top-nav ul.nav-list div.config-modal-actived {
@@ -382,7 +397,7 @@ div.mask div#camera-canvas header a.voltar-btn i{
     margin-right: 10px;
 }
 
-div.mask div#camera-canvas header a.close-btn:hover, div.mask div#camera-canvas header a.close-btn:active {
+div.mask header a.close-btn:hover, div.mask div#camera-canvas header a.close-btn:active {
     color: #f26666;
 }
 
@@ -501,6 +516,16 @@ div#snap-view div.snap-view-container {
 div#snap-view div.snap-view-container header {
     position: absolute;
     width: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+}
+
+div#snap-view div.snap-view-container header span.snap-user {
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fefefe;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    padding: 20px;
 }
 
 div#snap-view img#snap-img {

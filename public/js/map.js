@@ -36,7 +36,7 @@ function load_markers(map) {
 
     var snapnextApiUrl = "https://pacific-taiga-97807.herokuapp.com";
     // var snapnextApiUrl = "http://localhost:8080";
-    
+
     var cmarker = {
         url: "./images/icons/map_marker.png",
         anchor: new google.maps.Point(41, 41)
@@ -59,6 +59,10 @@ function load_markers(map) {
             marker.addListener('click', function() {
                 $.get(snapnextApiUrl + "/snaps/"+ snap._id, function(snapdata) {
                     $('#snap-view').addClass('maskFlexbox');
+
+                    $.get(snapnextApiUrl + "/users/"+ snapdata.userId, function(user) {
+                        $('.snap-user').html(user[0].username);
+                    });
 
                     $('#snap-img').attr('src', snapdata.imageURL);
                 });
