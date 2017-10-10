@@ -6,7 +6,7 @@ var fs      = require('fs');
 router.get('/:imgURI', function(req, res, next) {
     var img = fs.readFile(('./public/images/snaps/'+ req.params.imgURI), function(err, image) {
         if(err) {
-            res.status(500).json({ error: err.message });
+            res.json({ error: err.message });
             res.end();
             return;
         }

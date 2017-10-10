@@ -1,6 +1,13 @@
 
-var Snap = require('../models/snap');
-var fs   = require('fs');
+var Snap       = require('../models/snap');
+var fs         = require('fs');
+var cloudinary = require('cloudinary');
+
+cloudinary.config({
+    cloud_name: 'dqsc6ryot',
+    api_key: '945646775917498',
+    api_secret: 'rAp43tiVkHdASeW5Q46cSMwW5ts'
+});
 
 exports.markers = function(req, res) {
     Snap.find({})
@@ -65,39 +72,48 @@ exports.snapById = function(req, res) {
 
 exports.add = function(req, res) {
     var imageURI       = "snap_"+ req.body.userId +"_"+ Date.now() +".png";
-    var imageB64       = req.body.image.replace(/^data:image\/png;base64,/, "");
-    var imageBinBuffer = new Buffer(imageB64, 'base64').toString('binary');
+    //var imageB64       = req.body.image.replace(/^data:image\/png;base64,/, "");
+    //var imageBinBuffer = new Buffer(imageB64, 'base64').toString('binary');
+    // var imageURL       = "https://";
     var imageURL       = req.protocol +"://"+ req.get('host') + "/media/"+ imageURI;
 
-    fs.writeFile(('./public/images/snaps/'+ imageURI), imageBinBuffer, 'binary', function(err) {
-        if(err) {
-            res.status(500).json({ error: err.message });
+    cloudinary.uploader.upload(req.body.image, function(result) {
+        // if(error) {
+        //     res.json(error);
+        //     res.end();
+        // }
+        
+        var newSnap = new Snap({
+            imageURL: result.secure_url,
+            lat: req.body.lat,
+            lng: req.body.lng,
+            subtitle: req.body.subtitle,
+            userId: req.body.userId,
+        });
+
+        newSnap.save(function(err) {
+            if(err) {
+                res.status(500).json({ error: err.message });
+                res.end();
+                return;
+            }
+
+            res.json(newSnap);
             res.end();
-            return;
-        }
-
-        res.status(200).json({ msg: "success" });
-        res.end();
+        });
     });
 
-    var newSnap = new Snap({
-        imageURL: imageURL,
-        lat: req.body.lat,
-        lng: req.body.lng,
-        subtitle: req.body.subtitle,
-        userId: req.body.userId,
-    });
-
-    newSnap.save(function(err) {
-        if(err) {
-            res.status(500).json({ error: err.message });
-            res.end();
-            return;
-        }
-
-        res.json(newSnap);
-        res.end();
-    });
+    // fs.writeFile(('./public/images/snaps/'+ imageURI), imageBinBuffer, 'binary', function(err) {
+    //     if(err) {
+    //         res.status(500).json({ error: err.message });
+    //         res.end();
+    //         return;
+    //     }
+    //
+    //     res.status(200).json({ msg: "success" });
+    //     res.end();
+    // });
+    //
 }
 
 exports.remove = function(req, res) {
