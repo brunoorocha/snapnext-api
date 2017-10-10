@@ -109,4 +109,10 @@ $(document).ready(function() {
     $.get(snapnextApiUrl + "/users/" + userID, function(user) {
         $('.config-modal-username').html(user[0].username);
     });
+
+    $('#snap-view-close-btn').on('click', function(evt) {
+        evt.preventDefault();
+
+        $('#snap-view').removeClass('maskFlexbox');
+    });
 });

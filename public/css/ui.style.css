@@ -351,7 +351,7 @@ div.mask div#camera-canvas div.camera-controls header {
     float: left;
 }
 
-div.mask div#camera-canvas header a.close-btn{
+div.mask a.close-btn{
     float: right;
     font-size: 22px;
     padding: 20px;
@@ -492,6 +492,21 @@ div.mask div#camera-canvas div#photo-preview canvas{
     order: 1;
     flex: 0 1 auto;
     align-self: center;
+}
+
+div#snap-view div.snap-view-container {
+    position: relative;
+}
+
+div#snap-view div.snap-view-container header {
+    position: absolute;
+    width: 100%;
+}
+
+div#snap-view img#snap-img {
+    max-height: 90%;
+    width: 100%;
+    max-width: 640px;
 }
 
 @keyframes move {

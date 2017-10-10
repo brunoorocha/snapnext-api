@@ -11,16 +11,10 @@ $(document).ready(function() {
     $('#video').css('height', $(window).height() - 20 + "px");
     $('#photo-preview').css('height', $(window).height() - 20 + "px");
 
-    $('.close-btn').on("click", function(evt) {
+    $('#camera-close-btn').on("click", function(evt) {
         evt.preventDefault();
 
-        video.pause();
-        video.srcObject = null;
-        localStream.getTracks()[0].stop();
-
-        context.clearRect(0, 0, w, h);
-        $('.mask').removeClass('maskFlexbox');
-        $('.slider').css('margin-left', '0');
+        closeCamera();
     });
 
     $('.voltar-btn').on("click", function(evt) {
@@ -32,7 +26,7 @@ $(document).ready(function() {
 
     $('#camera-invoke').on("click", function() {
 
-        $('.mask').addClass('maskFlexbox');
+        $('#camera-mask').addClass('maskFlexbox');
 
         var constraints = {
             video: {
@@ -92,12 +86,23 @@ $(document).ready(function() {
         }
 
         $.post(snapnextApiUrl + "/snaps/", dataSerialized, function(res) {
-            console.log(res);
+            load_markers(window.map);
+            closeCamera();
         }, "json")
             .fail(function(err) {
 
             });
     });
 
+    function closeCamera() {
+
+        video.pause();
+        video.srcObject = null;
+        localStream.getTracks()[0].stop();
+
+        context.clearRect(0, 0, w, h);
+        $('#camera-mask').removeClass('maskFlexbox');
+        $('.slider').css('margin-left', '0');
+    }
     // APP KEY: AIzaSyCqzLefuOPjzqilZRRZDILvSF8QgJ_r1jc
 });

@@ -1,16 +1,11 @@
 
 function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
+    window.map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: -34.397, lng: 150.644},
         zoom: 18,
         styles: mapStyle,
         disableDefaultUI: true
     });
-
-    var cmarker = {
-        url: "./images/icons/map_marker.png",
-        anchor: new google.maps.Point(41, 41)
-    }
 
     //var infoWindow = new google.maps.InfoWindow({map: map});
 
@@ -34,11 +29,18 @@ function initMap() {
         handleLocationError(false, infoWindow, map.getCenter());
     }
 
+    load_markers(map);
+}
+
+function load_markers(map) {
+
     var snapnextApiUrl = "https://pacific-taiga-97807.herokuapp.com";
+    var cmarker = {
+        url: "./images/icons/map_marker.png",
+        anchor: new google.maps.Point(41, 41)
+    }
 
     $.get(snapnextApiUrl + "/snaps/markers/", function(snaps) {
-        console.log(snaps);
-
         snaps.forEach(function(snap) {
             var coord = {
                  lat: snap.lat,
@@ -50,6 +52,14 @@ function initMap() {
                 map: map,
                 icon: cmarker,
                 title: snap._id
+            });
+
+            marker.addListener('click', function() {
+                $.get(snapnextApiUrl + "/snaps/"+ snap._id, function(snapdata) {
+                    $('#snap-view').addClass('maskFlexbox');
+
+                    $('#snap-img').attr('src', snapdata.imageURL);
+                });
             });
         });
     });

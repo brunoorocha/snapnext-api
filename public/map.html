@@ -16,39 +16,7 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqzLefuOPjzqilZRRZDILvSF8QgJ_r1jc&callback=initMap" async defer></script>
     </head>
     <body>
-
-
-
         <div class="container">
-
-            <div class="mask">
-                <div id="camera-canvas">
-                    <div class="slider">
-                        <div class="camera-controls">
-                            <header>
-                                <a href="#" id="camera-close-btn" class="close-btn"><i class="fa fa-times" aria-hidden="true"></i></a>
-                            </header>
-
-                            <footer>
-                                <a href="#" id="camera-capture-btn"></a>
-                            </footer>
-                        </div>
-
-                        <video src="" autoplay id="video"></video>
-                        <div id="photo-preview">
-                            <header>
-                                <a href="#" class="voltar-btn"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
-                                <a href="#" id="camera-close-btn" class="close-btn"><i class="fa fa-times" aria-hidden="true"></i></a>
-                            </header>
-
-                            <footer>
-                                <a href="#" id="publicar-btn"><i class="fa fa-share" aria-hidden="true"></i></a>
-                            </footer>
-                            <canvas id="video-canvas"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="top-nav overmap">
                 <div class="align">
@@ -78,6 +46,44 @@
             </span>
 
             <div id="map"></div>
+
+            <div class="mask" id="camera-mask">
+                <div id="camera-canvas">
+                    <div class="slider">
+                        <div class="camera-controls">
+                            <header>
+                                <a href="#" id="camera-close-btn" class="close-btn"><i class="fa fa-times" aria-hidden="true"></i></a>
+                            </header>
+
+                            <footer>
+                                <a href="#" id="camera-capture-btn"></a>
+                            </footer>
+                        </div>
+
+                        <video src="" autoplay id="video"></video>
+                        <div id="photo-preview">
+                            <header>
+                                <a href="#" class="voltar-btn"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                                <a href="#" id="camera-close-btn" class="close-btn"><i class="fa fa-times" aria-hidden="true"></i></a>
+                            </header>
+
+                            <footer>
+                                <a href="#" id="publicar-btn"><i class="fa fa-share" aria-hidden="true"></i></a>
+                            </footer>
+                            <canvas id="video-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mask" id="snap-view">
+                <div class="snap-view-container">
+                    <header>
+                        <a href="#" id="snap-view-close-btn" class="close-btn"><i class="fa fa-times" aria-hidden="true"></i></a>
+                    </header>
+                    <img src="" id="snap-img" alt="">
+                </div>
+            </div>
         </div>
     </body>
 </html>
