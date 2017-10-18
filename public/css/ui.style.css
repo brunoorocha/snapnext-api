@@ -534,6 +534,35 @@ div#snap-view img#snap-img {
     max-width: 640px;
 }
 
+div.notification {
+    position: fixed;
+    z-index: 10;
+    bottom: -30px;
+    left: calc(50% - 90px);
+    width: 180px;
+    background: repeating-linear-gradient(
+        45deg,
+        #8dd964,
+        #8dd964 20px,
+        #a4e183 20px,
+        #a4e183 40px
+    );
+    text-align: center;
+    animation: move-green .4s linear infinite;
+    transition: .2s ease-in;
+}
+
+div.notification-show {
+    bottom: 5px;    
+}
+
+div.notification p.notification-msg {
+    color: #171717;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
 @keyframes move {
   0% {
       background: repeating-linear-gradient(
@@ -551,6 +580,27 @@ div#snap-view img#snap-img {
           #ffc671 20px,
           #ffbe5d 20px,
           #ffbe5d 40px
+      );
+  }
+}
+
+@keyframes move-green {
+  0% {
+      background: repeating-linear-gradient(
+          45deg,
+          #8dd964,
+          #8dd964 20px,
+          #a4e183 20px,
+          #a4e183 40px
+      );
+  }
+  100% {
+      background: repeating-linear-gradient(
+          45deg,
+          #a4e183,
+          #a4e183 20px,
+          #8dd964 20px,
+          #8dd964 40px
       );
   }
 }

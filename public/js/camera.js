@@ -85,10 +85,15 @@ $(document).ready(function() {
             userId: userID
         }
 
+        $('#publicando-notify').addClass('notification-show');
+        closeCamera();
+
         $.post(snapnextApiUrl + "/snaps/", dataSerialized, function(res) {
             load_markers(window.map);
-            closeCamera();
         }, "json")
+            .done(function(err) {
+                $('#publicando-notify').removeClass('notification-show');
+            })
             .fail(function(err) {
 
             });

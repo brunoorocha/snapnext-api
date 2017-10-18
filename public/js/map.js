@@ -41,7 +41,7 @@ function load_markers(map) {
         url: "./images/icons/map_marker.png",
         anchor: new google.maps.Point(41, 41)
     }
-
+    
     $.get(snapnextApiUrl + "/snaps/markers/", function(snaps) {
         snaps.forEach(function(snap) {
             var coord = {

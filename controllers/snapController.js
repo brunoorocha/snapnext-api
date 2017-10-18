@@ -31,7 +31,14 @@ exports.markers = function(req, res) {
 }
 
 exports.listAll = function(req, res) {
-    Snap.find({})
+
+    var curDate = new Date();
+
+    Snap.find({
+        expireAt: {
+            $lte: curDate
+        }
+    })
         .exec(function(err, snaps) {
             if(err) {
                 res.status(500).json({ error: err.message });
