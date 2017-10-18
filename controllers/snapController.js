@@ -36,7 +36,7 @@ exports.listAll = function(req, res) {
 
     Snap.find({
         expireAt: {
-            $lte: curDate
+            $gte: curDate
         }
     })
         .exec(function(err, snaps) {
