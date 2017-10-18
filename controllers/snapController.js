@@ -10,7 +10,14 @@ cloudinary.config({
 });
 
 exports.markers = function(req, res) {
-    Snap.find({})
+
+    var curDate = new Date();
+
+    Snap.find({
+        expireAt: {
+            $gte: curDate
+        }
+    })
         .select('_id lat lng')
         .exec(function(err, snaps) {
             if(err) {
