@@ -525,15 +525,17 @@ div#snap-view div.snap-view-container header span.snap-user {
     font-weight: bold;
     color: #fefefe;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-    padding: 20px 10px 20px 20px;
+    padding: 20px 0px 0px 20px;
 }
 
 div#snap-view div.snap-view-container header span.snap-time {
     float: left;
-    font-size: 20px;
+    width: 100%;
+    font-size: 16px;
     color: #fefefe;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-    padding: 20px 0;
+    padding: 0px 20px;
+    margin-top: -22px;
 }
 
 div#snap-view img#snap-img {

@@ -72,9 +72,9 @@ function load_markers(map) {
                         dateDiff = dateDiff / 60;
                         var dateDiffInHours = Math.floor(dateDiff % 24);
 
-                        $('.snap-time').html(""+ dateDiffInHours + "h");
+                        $('.snap-time').html("há "+ dateDiffInHours + "h");
                     } else {
-                        $('.snap-time').html(""+ dateDiffInMins + "min");
+                        $('.snap-time').html("há "+ dateDiffInMins + "min");
                     }
 
                     $.get(snapnextApiUrl + "/users/"+ snapdata.userId, function(user) {
