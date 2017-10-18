@@ -8,4 +8,12 @@ $(document).ready(function() {
 
     mapContainer.style.width = windowW + 'px';
     mapContainer.style.height = windowH + 'px';
+
+    $(window).resize(function() {
+        windowW = window.innerWidth;
+        windowH = window.innerHeight;
+
+        mapContainer.style.width = windowW + 'px';
+        mapContainer.style.height = windowH + 'px';
+    });
 });

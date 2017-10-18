@@ -41,7 +41,7 @@ function load_markers(map) {
         url: "./images/icons/map_marker.png",
         anchor: new google.maps.Point(41, 41)
     }
-    
+
     $.get(snapnextApiUrl + "/snaps/markers/", function(snaps) {
         snaps.forEach(function(snap) {
             var coord = {
@@ -59,6 +59,23 @@ function load_markers(map) {
             marker.addListener('click', function() {
                 $.get(snapnextApiUrl + "/snaps/"+ snap._id, function(snapdata) {
                     $('#snap-view').addClass('maskFlexbox');
+
+                    var dateNow         = new Date().getTime();
+                    var createdAtms     = new Date(snapdata.createdAt).getTime();
+                    var dateDiff        = dateNow - createdAtms;
+
+                    dateDiff = dateDiff / 1000;
+                    dateDiff = dateDiff / 60;
+                    var dateDiffInMins = Math.floor(dateDiff % 60);
+
+                    if(dateDiffInMins > 59) {
+                        dateDiff = dateDiff / 60;
+                        var dateDiffInHours = Math.floor(dateDiff % 24);
+
+                        $('.snap-time').html(""+ dateDiffInHours + "h");
+                    } else {
+                        $('.snap-time').html(""+ dateDiffInMins + "min");
+                    }
 
                     $.get(snapnextApiUrl + "/users/"+ snapdata.userId, function(user) {
                         $('.snap-user').html(user[0].username);
