@@ -68,10 +68,11 @@ function load_markers(map) {
                     dateDiff = dateDiff / 60;
                     var dateDiffInMins = Math.floor(dateDiff % 60);
 
-                    if(dateDiffInMins > 59) {
-                        dateDiff = dateDiff / 60;
-                        var dateDiffInHours = Math.floor(dateDiff % 24);
+                    dateDiff = dateDiff / 60;
+                    var dateDiffInHours = Math.floor(dateDiff % 24);
+                    console.log(dateDiffInHours);
 
+                    if(dateDiffInHours > 0) {
                         $('.snap-time').html("há "+ dateDiffInHours + "h");
                     } else {
                         $('.snap-time').html("há "+ dateDiffInMins + "min");
