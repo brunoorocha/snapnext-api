@@ -96,7 +96,7 @@ function load_markers(map) {
 
         });
 
-        var mcOptions = {            
+        var mcOptions = {
             imagePath: "./images/icons/"
         }
         var markerCluster = new MarkerClusterer(map, markers, mcOptions);

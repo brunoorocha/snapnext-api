@@ -483,7 +483,7 @@ div.mask div#camera-canvas div#photo-preview footer {
     width: 100%;
     float: left;
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
 }
 
 div.mask div#camera-canvas div#photo-preview footer a#publicar-btn {

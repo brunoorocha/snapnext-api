@@ -13,7 +13,11 @@ $(document).ready(function() {
 
     $('#camera-close-btn').on("click", function(evt) {
         evt.preventDefault();
+        closeCamera();
+    });
 
+    $('#camera-close-btn2').on("click", function(evt) {
+        evt.preventDefault();
         closeCamera();
     });
 
