@@ -31,11 +31,11 @@ $(document).ready(function() {
         var constraints = {
             video: {
                 width: {
-                    min: 640,
+                    min: 720,
                     max: 720
                 },
                 height: {
-                    min: 360,
+                    min: 1280,
                     max: 1280
                 }
             }
