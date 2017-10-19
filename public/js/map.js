@@ -37,17 +37,24 @@ function load_markers(map) {
     var snapnextApiUrl = "https://pacific-taiga-97807.herokuapp.com";
     // var snapnextApiUrl = "http://localhost:8080";
 
+    var markers = [];
+
     var cmarker = {
         url: "./images/icons/map_marker.png",
         anchor: new google.maps.Point(41, 41)
     }
 
     $.get(snapnextApiUrl + "/snaps/markers/", function(snaps) {
+
+        var locations = [];
+
         snaps.forEach(function(snap) {
             var coord = {
                  lat: snap.lat,
                  lng: snap.lng
             }
+
+            locations.push(coord);
 
             var marker = new google.maps.Marker({
                 position: coord,
@@ -70,7 +77,6 @@ function load_markers(map) {
 
                     dateDiff = dateDiff / 60;
                     var dateDiffInHours = Math.floor(dateDiff % 24);
-                    console.log(dateDiffInHours);
 
                     if(dateDiffInHours > 0) {
                         $('.snap-time').html("há "+ dateDiffInHours + "h");
@@ -85,8 +91,19 @@ function load_markers(map) {
                     $('#snap-img').attr('src', snapdata.imageURL);
                 });
             });
+
+            markers.push(marker);
+
         });
+
+        var mcOptions = {            
+            imagePath: "./images/icons/"
+        }
+        var markerCluster = new MarkerClusterer(map, markers, mcOptions);
+
     });
+
+
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {

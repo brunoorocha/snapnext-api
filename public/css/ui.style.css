@@ -96,6 +96,7 @@ div.top-nav ul.nav-list div.config-modal {
     transform-origin: top right;
     opacity: 0;
     visibility: hidden;
+    z-index: 20;
 }
 
 div.top-nav ul.nav-list div.config-modal::after {
@@ -176,6 +177,7 @@ span#camera-invoke {
     position: fixed;
     left: calc(50% - 48px);
     bottom: 42px;
+    z-index: 5;
 
     transition: .2s ease-out;
     text-align: center;
