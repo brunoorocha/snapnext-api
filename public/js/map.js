@@ -97,6 +97,7 @@ function load_markers(map) {
         });
 
         var mcOptions = {
+            maxZoom: 19,
             imagePath: "./images/icons/"
         }
         var markerCluster = new MarkerClusterer(map, markers, mcOptions);
