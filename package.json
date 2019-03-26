@@ -6,15 +6,15 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "body-parser": "~1.17.1",
-    "cloudinary": "^1.9.0",
+    "body-parser": "^1.18.3",
+    "cloudinary": "^1.13.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "ejs": "~2.5.6",
-    "express": "~4.15.2",
+    "express": "^4.16.4",
     "mongodb": "^2.2.31",
     "mongoose": "^4.11.13",
-    "morgan": "~1.8.1",
+    "morgan": "^1.9.1",
     "serve-favicon": "~2.4.2"
   },
   "engines": {
